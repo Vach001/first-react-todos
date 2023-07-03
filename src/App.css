@@ -1,9 +1,14 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
 .App {
   text-align: center;
 }
 
 .App-header {
-  font-family: 'Times New Roman', Times, serif;
+  font-family: "Times New Roman", Times, serif;
   background-color: #91a5ce;
   min-height: 100vh;
   display: flex;
@@ -13,4 +18,3 @@
   font-size: calc(10px + 2vmin);
   color: rgb(5, 57, 155);
 }
-
