@@ -22,7 +22,13 @@ export default function Todos(){
               </div>
             </div>
           </section>
-          
+          <footer class="row__footer">
+            <button class="btn btn-success" id="add-new">Add new item</button>
+            <button class="btn btn-danger" id="delete-selected">
+              Delete selected
+            </button>
+            <button class="btn btn-warning" id="delete-all">Delete all</button>
+          </footer>
         </div>
       </div>
     )
