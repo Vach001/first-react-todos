@@ -1,10 +1,10 @@
 import styles from './App';
-import Todos from "./Components/Todos/Todos";
+import Todo from "./Components/Todo/Todo";
 
 function App() {
   return (
     <div>
-    <Todos/>
+    <Todo/>
     </div>
   );
 }
