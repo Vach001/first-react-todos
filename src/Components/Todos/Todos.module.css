@@ -1,0 +1,17 @@
+.head{
+    text-align: center;
+    color: darkblue;
+}
+.container{
+    width: auto;
+    height: auto;
+    display: flexbox;
+    background-color: rgb(126, 195, 255);
+    border-radius: 15px;
+    justify-content: center;
+    align-content: center;
+    margin-top: 5%;
+    margin-left: 25%;
+    margin-right: 25%;
+    padding: 5%;
+}
