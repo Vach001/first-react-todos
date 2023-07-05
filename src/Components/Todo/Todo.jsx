@@ -2,7 +2,7 @@ import { useState, useReducer } from "react";
 import styles from "./Todo.module.css";
 import TodoForm from "../TodoForm/TodoForm";
 import TodoList from "../TodoList/TodoList";
-import TodoFooter from "..TodoFooter/TodoFooter";
+import TodoFooter from "../TodoFooter/TodoFooter";
 
 function reducer(state, action) {
   if (action.type === "add") {
