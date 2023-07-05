@@ -50,7 +50,7 @@ function Todo() {
   return (
     <div className={styles.todoApp}>
       <header>
-        <h1 className={styles.todoAppTitle}>MY TODOS</h1>
+        <h1 className={styles.todoAppTitle}>TODOS</h1>
       </header>
 
       <TodoForm

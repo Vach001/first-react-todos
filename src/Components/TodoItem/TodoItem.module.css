@@ -17,6 +17,7 @@
 
 .todoListItem label {
   justify-self: start;
+  cursor: pointer;
 }
 
 .todoListItem label input {
@@ -34,4 +35,7 @@
   background: transparent;
   cursor: pointer;
   font-size: 16px;
+}
+.todoListItemDelete:hover{
+  color: rgb(255, 0, 0); 
 }

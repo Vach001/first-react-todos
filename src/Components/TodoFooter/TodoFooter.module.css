@@ -1,8 +1,9 @@
 .todoAppFooter {
-  color: #777;
+  color: #777777;
   padding: 10px 15px;
   height: 20px;
   border-top: 1px solid #e6e6e6;
+  
 }
 
 .todoClearCompleted {
@@ -13,8 +14,12 @@
   z-index: 9;
   border: 0;
   color: #4d4d4d;
-  background: #d6d6d6;
+  background: #d8caca;
   font-weight: 500;
   padding: 3px 5px;
   border-bottom: 1px solid #e6e6e6;
+  border-radius: 15px;
+}
+.todoClearCompleted:hover{
+  background-color: rgb(255, 0, 0, 0.7);
 }

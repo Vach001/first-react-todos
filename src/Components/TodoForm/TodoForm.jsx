@@ -15,6 +15,7 @@ function TodoForm({ onAdd }) {
     >
       <input
         className={styles.todoInput}
+        placeholder={"Write to add . . ."}
         type="text"
         value={text}
         onChange={(e) => {
