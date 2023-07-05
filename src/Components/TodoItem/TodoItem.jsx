@@ -2,7 +2,7 @@ import styles from "./TodoItem.module.css";
 
 function TodoItem({ todo, onChange, onDelete }) {
   return (
-    <div className="todoListItem">
+    <div className={styles.todoListItem}>
       <label>
         <input
           type="checkbox"
@@ -17,7 +17,7 @@ function TodoItem({ todo, onChange, onDelete }) {
         {todo.text}
       </label>
       <button
-        className="todoListItemDelete"
+        className={styles.todoListItemDelete}
         onClick={() => {
           onDelete(todo);
         }}

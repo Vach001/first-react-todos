@@ -1,8 +1,8 @@
 import { useState, useReducer } from "react";
-import "./App.css";
+import styles from "./Todo.module.css";
 import TodoForm from "../TodoForm/TodoForm";
-import TodoList from "./TodoList";
-import TodoFooter from "./TodoFooter";
+import TodoList from "../TodoList/TodoList";
+import TodoFooter from "..TodoFooter/TodoFooter";
 
 function reducer(state, action) {
   if (action.type === "add") {
@@ -48,9 +48,9 @@ function Todo() {
   ]);
 
   return (
-    <div className="App">
+    <div className={styles.todoApp}>
       <header>
-        <h1 className="todoAppTitle">todos</h1>
+        <h1 className={styles.todoAppTitle}>MY TODOS</h1>
       </header>
 
       <TodoForm
@@ -58,7 +58,7 @@ function Todo() {
           dispatch({
             type: "add",
             payload: {
-              text: text,
+              text,
             },
           });
         }}

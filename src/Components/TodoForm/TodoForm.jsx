@@ -1,11 +1,11 @@
-import React from "react";
+import { useState } from "react";
 import styles from "./TodoForm.module.css";
 
 function TodoForm({ onAdd }) {
   const [text, setText] = useState("");
   return (
     <form
-      className="todoAppForm"
+      className={styles.todoAppForm}
       onSubmit={(e) => {
         e.preventDefault();
         onAdd(text);
@@ -13,14 +13,14 @@ function TodoForm({ onAdd }) {
       }}
     >
       <input
-        className="todoInput"
+        className={styles.todoInput}
         type="text"
         value={text}
         onChange={(e) => {
           setText(e.target.value);
         }}
       />
-      <button className="todoAppAddButton">Add</button>
+      <button className={styles.todoAppAddButton}>Add</button>
     </form>
   );
 }

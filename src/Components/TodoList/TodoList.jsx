@@ -1,8 +1,9 @@
 import TodoItem from "../TodoItem/TodoItem";
+import styles from "./TodoList.module.css"
 
 function TodoList({todos, onDelete, onChange}) {
     return (
-        <div>
+        <div className={styles.todoList}>
             {
                 todos.map((todo) => {
                     return (
