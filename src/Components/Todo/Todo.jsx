@@ -1,4 +1,4 @@
-import TodoInput from "../TodoInput/TodoInput";
+import TodoInput from "../TodoForm/TodoForm";
 import styles from "./Todo.module.css";
 
 export default function Todo() {
