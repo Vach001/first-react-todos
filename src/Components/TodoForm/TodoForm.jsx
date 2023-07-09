@@ -1,20 +1,18 @@
 import { useState } from "react";
 import styles from "./TodoForm.module.css";
-import {TextField} from "@mui/material";
+import {Button, TextField} from "@mui/material";
 
 function TodoForm({ onAdd }) {
   const [text, setText] = useState("");
   const [label, setLabel] = useState(". . .");
+  const handleClick = (e) => {
+      e.preventDefault();
+      onAdd(text);
+      setText("");
+  }
 
   return (
-    <form
-      className={styles.todoAppForm}
-      onSubmit={(e) => {
-        e.preventDefault();
-        onAdd(text);
-        setText("");
-      }}
-    >
+    <div style={{width: "100%"}}>
       {/*  Todo: Not Material ui*/}
       {/*<input*/}
       {/*  className={styles.todoInput}*/}
@@ -27,6 +25,7 @@ function TodoForm({ onAdd }) {
       {/*/>*/}
 
         <TextField
+            sx={{width: "100%"}}
             label={`Write to add ${label}`}
             onFocus={() => setLabel("")}
             onBlur={() => setLabel(". . .")}
@@ -37,11 +36,11 @@ function TodoForm({ onAdd }) {
                 setText(e.target.value);
             }}
             InputProps={{
-                endAdornment: <button className={styles.todoAppAddButton}>Add</button>
+                endAdornment: <Button variant="contained" onClick={handleClick}>ADD</Button>
             }}
         />
 
-    </form>
+    </div>
   );
 }
 
