@@ -6,6 +6,7 @@ import TodoFooter from "../TodoFooter/TodoFooter";
 
 function reducer(state, action) {
   if (action.type === "add") {
+    
     return [
       ...state,
       {
@@ -27,6 +28,7 @@ function reducer(state, action) {
     });
   }
 }
+
 
 function Todo() {
   const [todos, dispatch] = useReducer(reducer, [
