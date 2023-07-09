@@ -1,51 +1,36 @@
-import { useState, useReducer } from "react";
+import { useReducer } from "react";
 import styles from "./Todo.module.css";
 import TodoForm from "../TodoForm/TodoForm";
 import TodoList from "../TodoList/TodoList";
 import TodoFooter from "../TodoFooter/TodoFooter";
+import {nameActionOptions} from "../../constants/actions.constants";
+import {todoReducer} from "../../reducers/todoReducer";
+import {v4} from "uuid";
 
-function reducer(state, action) {
-  if (action.type === "add") {
-    return [
-      ...state,
-      {
-        id: Math.random(),
-        text: action.payload.text,
-        isCompleted: false,
-      },
-    ];
-  } else if (action.type === "delete") {
-    return state.filter((t) => t.id !== action.payload.id);
-  } else if (action.type === "clear-completed") {
-    return state.filter((todo) => !todo.isCompleted);
-  } else if (action.type === "update") {
-    return state.map((todo) => {
-      if (todo.id === action.payload.updatedTodo.id) {
-        return action.payload.updatedTodo;
-      }
-      return todo;
-    });
-  }
-}
+const getStorage = (value) => localStorage.getItem(value);
+const setStorage = (key, value) => localStorage.setItem(key, value);
+const removeStorage = (value) => localStorage.removeItem(value);
 
 function Todo() {
-  const [todos, dispatch] = useReducer(reducer, [
+  const [todos, dispatch] = useReducer(todoReducer, [
     {
-      id: Math.random(),
+      id: v4(),
       text: "Learn JS",
       isCompleted: false,
     },
     {
-      id: Math.random(),
+      id: v4(),
       text: "Learn CSS",
       isCompleted: false,
     },
     {
-      id: Math.random(),
+      id: v4(),
       text: "Learn React",
       isCompleted: false,
     },
   ]);
+
+  const {COMPLETED, ADD, UPDATE, DELETE} = nameActionOptions;
 
   return (
     <div className={styles.todoApp}>
@@ -56,7 +41,7 @@ function Todo() {
       <TodoForm
         onAdd={(text) => {
           dispatch({
-            type: "add",
+            type: ADD,
             payload: {
               text,
             },
@@ -65,19 +50,19 @@ function Todo() {
       />
       <TodoList
         todos={todos}
-        onDelete={(todo) => {
+        onDelete={({id}) => {
           dispatch({
-            type: "delete",
+            type: DELETE,
             payload: {
-              id: todo.id,
+                id,
             },
           });
         }}
-        onChange={(newTodo) => {
+        onChange={(updatedTodo) => {
           dispatch({
-            type: "update",
+            type: UPDATE,
             payload: {
-              updatedTodo: newTodo,
+              updatedTodo,
             },
           });
         }}
@@ -86,7 +71,7 @@ function Todo() {
         todos={todos}
         onClearCompleted={() => {
           dispatch({
-            type: "clear-completed",
+            type: COMPLETED,
           });
         }}
       />
