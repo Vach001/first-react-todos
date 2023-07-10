@@ -1,9 +1,10 @@
 import TodoItem from "../TodoItem/TodoItem";
 import styles from "./TodoList.module.css"
+import {Box} from "@mui/material";
 
 function TodoList({todos, onDelete, onChange}) {
     return (
-        <div className={styles.todoList}>
+        <Box className={styles.todoList}>
             {
                 todos.map((todo) => {
                     return (
@@ -16,7 +17,7 @@ function TodoList({todos, onDelete, onChange}) {
                     )
                 })
             }
-        </div>
+        </Box>
     )
 }
 

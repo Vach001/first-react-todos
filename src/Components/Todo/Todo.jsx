@@ -6,6 +6,7 @@ import TodoFooter from "../TodoFooter/TodoFooter";
 import {nameActionOptions} from "../../constants/actions.constants";
 import {todoReducer} from "../../reducers/todoReducer";
 import {getStorage, setStorage} from "../../helpers/localstorage";
+import {Box, Typography} from "@mui/material";
 
 function Todo() {
   const [todos, dispatch] = useReducer(todoReducer, JSON.parse(getStorage("todosState")) ?? []);
@@ -16,49 +17,56 @@ function Todo() {
   }, [todos])
 
   return (
-    <div className={styles.todoApp}>
-      <header>
-        <h1 className={styles.todoAppTitle}>TODOS</h1>
-      </header>
+      <>
+        <Typography
+            variant="h1"
+            component="h1"
+            sx={{mt: "20px"}}
+            className={styles.todoAppTitle}
+        >
+            TODOS
+        </Typography>
 
-      <TodoForm
-        onAdd={(text) => {
-          dispatch({
-            type: ADD,
-            payload: {
-              text,
-            },
-          });
-        }}
-      />
-      <TodoList
-        todos={todos}
-        onDelete={({id}) => {
-          dispatch({
-            type: DELETE,
-            payload: {
-                id,
-            },
-          });
-        }}
-        onChange={(updatedTodo) => {
-          dispatch({
-            type: UPDATE,
-            payload: {
-              updatedTodo,
-            },
-          });
-        }}
-      />
-      <TodoFooter
-        todos={todos}
-        onClearCompleted={() => {
-          dispatch({
-            type: COMPLETED,
-          });
-        }}
-      />
-    </div>
+        <Box className={styles.todoApp}>
+          <TodoForm
+            onAdd={(text) => {
+              dispatch({
+                type: ADD,
+                payload: {
+                  text,
+                },
+              });
+            }}
+          />
+          <TodoList
+            todos={todos}
+            onDelete={({id}) => {
+              dispatch({
+                type: DELETE,
+                payload: {
+                    id,
+                },
+              });
+            }}
+            onChange={(updatedTodo) => {
+              dispatch({
+                type: UPDATE,
+                payload: {
+                  updatedTodo,
+                },
+              });
+            }}
+          />
+          <TodoFooter
+            todos={todos}
+            onClearCompleted={() => {
+              dispatch({
+                type: COMPLETED,
+              });
+            }}
+          />
+        </Box>
+      </>
   );
 }
 
