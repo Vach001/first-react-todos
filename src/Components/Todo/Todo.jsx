@@ -3,6 +3,10 @@ import styles from "./Todo.module.css";
 import TodoForm from "../TodoForm/TodoForm";
 import TodoList from "../TodoList/TodoList";
 import TodoFooter from "../TodoFooter/TodoFooter";
+import { nameActionOptions } from "../../constants/actions.constants";
+import { todoReducer } from "../../reducers/todoReducer";
+import { getStorage, setStorage } from "../../helpers/localStorage";
+import { Box, Typography } from "@mui/material";
 
 function Todo() {
   const [todos, dispatch] = useReducer(
