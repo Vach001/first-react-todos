@@ -8,7 +8,7 @@ function TodoItem({ todo, onChange, onDelete }) {
               label={todo.text}
               control={
                   <Checkbox
-                      defaultChecked
+                      defaultRequered
                       aria-checked={todo.isCompleted}
                       onChange={(e) => {
                           onChange({
