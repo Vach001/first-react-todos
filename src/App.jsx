@@ -1,11 +1,12 @@
 import styles from './App';
 import Todo from "./Components/Todo/Todo";
+import {Box} from "@mui/material";
 
 function App() {
   return (
-    <div>
-    <Todo/>
-    </div>
+    <Box>
+      <Todo/>
+    </Box>
   );
 }
 
