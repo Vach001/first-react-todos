@@ -18,5 +18,4 @@ function TodoList({ todos, onDelete, onChange }) {
     </Box>
   );
 }
-
 export default TodoList;
